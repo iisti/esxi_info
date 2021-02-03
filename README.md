@@ -62,6 +62,7 @@
         hostname3
     Using WSL (Windows Subsystem for Linux): 4.4.0-19041-Microsoft
     ~~~
+1. You can see example output HTML page in https://htmlpreview.github.io/?https://github.com/iisti/esxi_info/blob/main/dev_tests/test_index.html
 
 ### Automation
 * You can automate program to run perodically by creating SSH keys for connecting to the ESXi hosts and creating a cronjob for running the program perodically. 
