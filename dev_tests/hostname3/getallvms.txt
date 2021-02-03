@@ -1,0 +1,10 @@
+Vmid                            Name                                                                                        File                                                                      Guest OS          Version                                                                                                                                                                             Annotation                                                                                                                                                                          
+1      win10vm                                          [vms] win10vm/win10vm.vmx                                                                                 windows9_64Guest        vmx-14    IP: 10.10.72.21
+Old IP: 10.10.200.37
+Old IP: 10.10.6.139
+DNS: win10vm 
+
+User10 is using this VM 26.3.2030.
+
+2      srv-ad-dc01                                              [vms] srv-ad-dc01/srv-ad-dc01.vmx                                                                                         windows8Server64Guest   vmx-15    IP 10.10.72.11                                                                                                                                                                                                                                                                                                                                              
+3      debian2021vm   [vms] debian2021vm/debian2021vm.vmx    debian9_64Guest       vmx-14    Exported on 29.01.2050                                                                                                                                                                                                                                                                                                     

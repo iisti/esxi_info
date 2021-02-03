@@ -1,0 +1,6 @@
+ls -l /vmfs/volumes/vms/
+total 512
+drwxr-xr-x    1 root     root         73728 Feb  2 14:41 backups
+drwxr-xr-x    1 root     root         77824 Feb  2 15:26 win10vm
+drwxr-xr-x    1 root     root         77824 Jan 18 15:14 srv-ad-dc01
+drwxr-xr-x    1 root     root         73728 Jan 29 19:37 debian2021vm

@@ -1,0 +1,15 @@
+srv-ad-dc01
+   World ID: 2106945
+   Process ID: 0
+   VMX Cartel ID: 2106944
+   UUID: 56 4d 0e 74 3e 8e 5d a3-34 0b 76 6d 94 47 16 63
+   Display Name: srv-ad-dc01
+   Config File: /vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2/srv-ad-dc01/srv-ad-dc01.vmx
+
+win10vm
+   World ID: 5660265
+   Process ID: 0
+   VMX Cartel ID: 5660264
+   UUID: 56 4d d3 80 b4 ac 45 ad-05 61 42 67 ac 77 33 0d
+   Display Name: win10vm
+   Config File: /vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2/win10vm/win10vm.vmx

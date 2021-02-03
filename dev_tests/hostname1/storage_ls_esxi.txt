@@ -1,0 +1,4 @@
+ls -l /vmfs/volumes/esxi/
+total 336000
+-rw-r--r--    1 root     root     343116593 Nov 12 16:21 ESXi670-202011001.zip
+drwxr-xr-x    1 root     root         77824 Feb  2 15:42 XSIBackup-Free

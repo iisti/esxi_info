@@ -1,0 +1,8 @@
+Filesystem   Size   Used Available Use% Mounted on
+NFS41        3.7T   2.2T      1.5T  59% /vmfs/volumes/freenas
+VMFS-6     104.0G   1.7G    102.3G   2% /vmfs/volumes/esxi
+VMFS-6       3.6T 203.7G      3.4T   5% /vmfs/volumes/vms
+vfat         4.0G  15.0M      4.0G   0% /vmfs/volumes/5fad55fa-8b45953e-ae86-0025901e43a2
+vfat       249.7M 148.4M    101.3M  59% /vmfs/volumes/66dc3e7e-7bbbdb06-cef0-c244cc62f85b
+vfat       285.8M 197.5M     88.4M  69% /vmfs/volumes/5fad55f3-5f3fc784-df70-0025901e43a2
+vfat       249.7M 148.6M    101.1M  59% /vmfs/volumes/5ae10e7c-26593d16-a85d-5761468ee5cf

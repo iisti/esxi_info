@@ -1,0 +1,13 @@
+Comprehensive {
+   Physical memory estimate:50322212 KB
+   Given to VMKernel:50322212 KB
+   Reliable memory:0 KB
+   Discarded by VMKernel:1572 KB
+   Mmap buddy overhead:12304 KB
+   Kernel code region:20480 KB
+   Kernel data and heap:14336 KB
+   Other kernel:1504748 KB
+   Non-kernel:11264676 KB
+   Reserved memory at low addresses:248380 KB
+   Free:37504096 KB
+}

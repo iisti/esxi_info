@@ -1,0 +1,9 @@
+Mount Point                                        Volume Name        UUID                                 Mounted  Type             Size           Free
+-------------------------------------------------  -----------------  -----------------------------------  -------  ------  -------------  -------------
+/vmfs/volumes/ec124e48-39674cc3-0000-000000000000  freenas            ec124e48-39674cc3-0000-000000000000     true  NFS41   4110406627328  1695346520064
+/vmfs/volumes/5fad55fa-472c3796-ee03-0025901e43a2  esxi               5fad55fa-472c3796-ee03-0025901e43a2     true  VMFS-6   111669149696   109810024448
+/vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2  vms                5fad6411-67b72536-510b-0025901e43a2     true  VMFS-6  3998346117120  3779619454976
+/vmfs/volumes/5fad55fa-8b45953e-ae86-0025901e43a2                     5fad55fa-8b45953e-ae86-0025901e43a2     true  vfat       4293591040     4277862400
+/vmfs/volumes/66dc3e7e-7bbbdb06-cef0-c244cc62f85b                     66dc3e7e-7bbbdb06-cef0-c244cc62f85b     true  vfat        261853184      106250240
+/vmfs/volumes/5fad55f3-5f3fc784-df70-0025901e43a2                     5fad55f3-5f3fc784-df70-0025901e43a2     true  vfat        299712512       92659712
+/vmfs/volumes/5ae10e7c-26593d16-a85d-5761468ee5cf                     5ae10e7c-26593d16-a85d-5761468ee5cf     true  vfat        261853184      106053632
