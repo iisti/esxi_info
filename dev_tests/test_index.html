@@ -1,0 +1,324 @@
+<!DOCTYPE html
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>ESXis</title>
+</head>
+
+<style>
+  body {
+    font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu
+    Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,sans-serif;
+    color: white;
+    background-color: #2d2d2d;
+  }
+  .div-center-esxi {
+    margin: auto;
+    width: 70%;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border: 3px solid brown;
+    white-space: pre-wrap;
+  }
+  pre {
+    margin: 0;
+  }
+  h1 {
+    margin: 0px;
+  }
+  h2 {
+    margin: 0px;
+  }
+  h3 {
+    margin: 0px;
+  }
+  .div-title {
+    background-color: black;
+    color: orange;
+    width: max-content;
+    padding: 10px;
+  }
+  .div-h1-heading {
+    background-color: black;
+    color: orange;
+    width: max-content;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .div-h3-heading {
+    background-color: black;
+    color: orange;
+    width: max-content;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .div-esxi-data {
+    color: white;
+    background-color: black;
+    padding-left: 10px;
+    padding-bottom: 10px;
+  }
+  .div-esxi-version {
+    maring: auto;
+    width: max-content;
+    color: white;
+    background-color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+  .div-esxi-never-worked {
+    color: black;
+    background-color: #CC99CC;
+  }
+  .div-esxi-unreachable {
+    color: black;
+    background-color: #A28B30;
+  }
+</style>
+
+<body>
+<center>
+<h1>
+<div class="div-title">
+  ESXi information, what is running where
+</div>
+</h1>
+</center>
+<br>
+<center>The script has been run last time on Wed Feb  3 22:50:57 CET 2021</center>
+<br>
+<center>Attention, the timezones of the script server and ESXi hosts can be differ.</center>
+<center>Compare UTC/CEST/etc timezone on the timestamp if you are confused.</center>
+<hr>
+<pre>
+<center>
+<div class="div-h1-heading">
+<h1>hostname1</h1>
+</center>
+</div>
+<div>
+<center><div class="div-esxi-version">
+VMware ESXi 6.7.0 build-17098360
+VMware ESXi 6.7.0 Update 3
+</div></center>
+<center>The last check: Wed Feb  3 18:53:48 UTC 2021</center>
+<div class="div-h3-heading">
+<h3>esxcli network ip interface ipv4 get</h3>
+</div>
+<div class="div-esxi-data">
+Name  IPv4 Address  IPv4 Netmask     IPv4 Broadcast  Address Type  Gateway       DHCP DNS
+----  ------------  ---------------  --------------  ------------  ------------  --------
+vmk0  10.10.70.9  255.255.255.192  10.10.70.63   STATIC        10.10.70.1     false
+</div>
+<div class="div-h3-heading">
+<h3>df -h</h3>
+</div>
+<div class="div-esxi-data">
+Filesystem   Size   Used Available Use% Mounted on
+NFS41        3.7T   2.2T      1.5T  59% /vmfs/volumes/freenas
+VMFS-6     104.0G   1.7G    102.3G   2% /vmfs/volumes/esxi
+VMFS-6       3.6T 203.7G      3.4T   5% /vmfs/volumes/vms
+vfat         4.0G  15.0M      4.0G   0% /vmfs/volumes/5fad55fa-8b45953e-ae86-0025901e43a2
+vfat       249.7M 148.4M    101.3M  59% /vmfs/volumes/66dc3e7e-7bbbdb06-cef0-c244cc62f85b
+vfat       285.8M 197.5M     88.4M  69% /vmfs/volumes/5fad55f3-5f3fc784-df70-0025901e43a2
+vfat       249.7M 148.6M    101.1M  59% /vmfs/volumes/5ae10e7c-26593d16-a85d-5761468ee5cf
+</div>
+<div class="div-h3-heading">
+<h3>Memory</h3>
+</div>
+<div class="div-esxi-data">
+Phys 49143 MB = 47.99 GB
+Used 12518 MB = 12.22 GB
+Free 36625 MB = 35.77 GB
+</div>
+<div class="div-h3-heading">
+<h3>esxcli vm process list</h3>
+</div>
+<div class="div-esxi-data">
+srv-ad-dc01
+   Display Name: srv-ad-dc01
+   Config File: /vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2/srv-ad-dc01/srv-ad-dc01.vmx
+
+win10vm
+   Display Name: win10vm
+   Config File: /vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2/win10vm/win10vm.vmx
+</div>
+<div class="div-h3-heading">
+<h3>vim-cmd vmsvc/getallvms</h3>
+</div>
+<div class="div-esxi-data">
+Vmid, Name, File, Guest_OS, Version, Annotation
+1 win10vm [vms] win10vm/win10vm.vmx windows9_64Guest vmx-14 
+    IP: 10.10.72.21
+    Old IP: 10.10.200.37
+    Old IP: 10.10.6.139
+    DNS: win10vm 
+    
+    User10 is using this VM 26.3.2030.
+    
+2 srv-ad-dc01 [vms] srv-ad-dc01/srv-ad-dc01.vmx windows8Server64Guest vmx-15 
+    IP 10.10.72.11 
+3 debian2021vm [vms] debian2021vm/debian2021vm.vmx debian9_64Guest vmx-14 
+    Exported on 29.01.2050 
+</div>
+<div class="div-h3-heading">
+<h3>ls -l /vmfs/volumes/&lt;storage_name&gt;</h3>
+</div>
+<div class="div-esxi-data">
+ls -l /vmfs/volumes/esxi/
+total 336000
+-rw-r--r--    1 root     root     343116593 Nov 12 16:21 ESXi670-202011001.zip
+drwxr-xr-x    1 root     root         77824 Feb  2 15:42 XSIBackup-Free
+ls -l /vmfs/volumes/freenas/
+total 920
+d---r-x---    2 root     root             4 Feb  3 14:11 mikrotik
+drwxr-x---    8 root     root             8 May 14  2020 power_failure
+drwxr-x---    2 root     root            12 Jan  8 08:20 backups
+drwxr-x---    2 root     root             2 Feb  1 15:35 xsibackup
+ls -l /vmfs/volumes/vms/
+total 512
+drwxr-xr-x    1 root     root         73728 Feb  2 14:41 backups
+drwxr-xr-x    1 root     root         77824 Feb  2 15:26 win10vm
+drwxr-xr-x    1 root     root         77824 Jan 18 15:14 srv-ad-dc01
+drwxr-xr-x    1 root     root         73728 Jan 29 19:37 debian2021vm
+</div>
+<div class="div-h3-heading">
+<h3>esxcli storage filesystem list</h3>
+</div>
+<div class="div-esxi-data">
+Mount Point                                        Volume Name        UUID                                 Mounted  Type             Size           Free
+-------------------------------------------------  -----------------  -----------------------------------  -------  ------  -------------  -------------
+/vmfs/volumes/ec124e48-39674cc3-0000-000000000000  freenas            ec124e48-39674cc3-0000-000000000000     true  NFS41   4110406627328  1695346520064
+/vmfs/volumes/5fad55fa-472c3796-ee03-0025901e43a2  esxi               5fad55fa-472c3796-ee03-0025901e43a2     true  VMFS-6   111669149696   109810024448
+/vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2  vms                5fad6411-67b72536-510b-0025901e43a2     true  VMFS-6  3998346117120  3779619454976
+/vmfs/volumes/5fad55fa-8b45953e-ae86-0025901e43a2                     5fad55fa-8b45953e-ae86-0025901e43a2     true  vfat       4293591040     4277862400
+/vmfs/volumes/66dc3e7e-7bbbdb06-cef0-c244cc62f85b                     66dc3e7e-7bbbdb06-cef0-c244cc62f85b     true  vfat        261853184      106250240
+/vmfs/volumes/5fad55f3-5f3fc784-df70-0025901e43a2                     5fad55f3-5f3fc784-df70-0025901e43a2     true  vfat        299712512       92659712
+/vmfs/volumes/5ae10e7c-26593d16-a85d-5761468ee5cf                     5ae10e7c-26593d16-a85d-5761468ee5cf     true  vfat        261853184      106053632
+</div>
+</pre>
+</div>
+<hr>
+<pre>
+<div class="div-esxi-never-worked">
+<center><h1>hostname2</h1></center>
+<div class="div-center-esxi">
+The SSH connection to ESXi did not work and probably has never worked.
+Check that SSH is enabled on the ESXi https://kb.vmware.com/s/article/2004746
+The last check: Wed Feb  3 22:50:59 CET 2021
+</div>
+</div>
+</pre>
+<hr>
+<pre>
+<center>
+<div class="div-h1-heading">
+<h1>hostname3</h1>
+</center>
+</div>
+<div class="div-esxi-unreachable">
+<center><h2>This ESXi is unreachable.</h2></center>
+<center><div class="div-esxi-version">
+VMware ESXi 6.7.0 build-17098360
+VMware ESXi 6.7.0 Update 3
+</div></center>
+<center>The last check: Sun Jan 30 18:57:55 UTC 2021</center>
+<div class="div-h3-heading">
+<h3>esxcli network ip interface ipv4 get</h3>
+</div>
+<div class="div-esxi-data">
+Name  IPv4 Address  IPv4 Netmask     IPv4 Broadcast  Address Type  Gateway       DHCP DNS
+----  ------------  ---------------  --------------  ------------  ------------  --------
+vmk0  10.10.70.9  255.255.255.192  10.10.70.63   STATIC        10.10.70.1     false
+</div>
+<div class="div-h3-heading">
+<h3>df -h</h3>
+</div>
+<div class="div-esxi-data">
+Filesystem   Size   Used Available Use% Mounted on
+NFS41        3.7T   2.2T      1.5T  59% /vmfs/volumes/freenas
+VMFS-6     104.0G   1.7G    102.3G   2% /vmfs/volumes/esxi
+VMFS-6       3.6T 203.7G      3.4T   5% /vmfs/volumes/vms
+vfat         4.0G  15.0M      4.0G   0% /vmfs/volumes/5fad55fa-8b45953e-ae86-0025901e43a2
+vfat       249.7M 148.4M    101.3M  59% /vmfs/volumes/66dc3e7e-7bbbdb06-cef0-c244cc62f85b
+vfat       285.8M 197.5M     88.4M  69% /vmfs/volumes/5fad55f3-5f3fc784-df70-0025901e43a2
+vfat       249.7M 148.6M    101.1M  59% /vmfs/volumes/5ae10e7c-26593d16-a85d-5761468ee5cf
+</div>
+<div class="div-h3-heading">
+<h3>Memory</h3>
+</div>
+<div class="div-esxi-data">
+Phys 49143 MB = 47.99 GB
+Used 12518 MB = 12.22 GB
+Free 36625 MB = 35.77 GB
+</div>
+<div class="div-h3-heading">
+<h3>esxcli vm process list</h3>
+</div>
+<div class="div-esxi-data">
+srv-ad-dc01
+   Display Name: srv-ad-dc01
+   Config File: /vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2/srv-ad-dc01/srv-ad-dc01.vmx
+
+win10vm
+   Display Name: win10vm
+   Config File: /vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2/win10vm/win10vm.vmx
+</div>
+<div class="div-h3-heading">
+<h3>vim-cmd vmsvc/getallvms</h3>
+</div>
+<div class="div-esxi-data">
+Vmid, Name, File, Guest_OS, Version, Annotation
+1 win10vm [vms] win10vm/win10vm.vmx windows9_64Guest vmx-14 
+    IP: 10.10.72.21
+    Old IP: 10.10.200.37
+    Old IP: 10.10.6.139
+    DNS: win10vm 
+    
+    User10 is using this VM 26.3.2030.
+    
+2 srv-ad-dc01 [vms] srv-ad-dc01/srv-ad-dc01.vmx windows8Server64Guest vmx-15 
+    IP 10.10.72.11 
+3 debian2021vm [vms] debian2021vm/debian2021vm.vmx debian9_64Guest vmx-14 
+    Exported on 29.01.2050 
+</div>
+<div class="div-h3-heading">
+<h3>ls -l /vmfs/volumes/&lt;storage_name&gt;</h3>
+</div>
+<div class="div-esxi-data">
+ls -l /vmfs/volumes/esxi/
+total 336000
+-rw-r--r--    1 root     root     343116593 Nov 12 16:21 ESXi670-202011001.zip
+drwxr-xr-x    1 root     root         77824 Feb  2 15:42 XSIBackup-Free
+ls -l /vmfs/volumes/freenas/
+total 920
+d---r-x---    2 root     root             4 Feb  3 14:11 mikrotik
+drwxr-x---    8 root     root             8 May 14  2020 power_failure
+drwxr-x---    2 root     root            12 Jan  8 08:20 backups
+drwxr-x---    2 root     root             2 Feb  1 15:35 xsibackup
+ls -l /vmfs/volumes/vms/
+total 512
+drwxr-xr-x    1 root     root         73728 Feb  2 14:41 backups
+drwxr-xr-x    1 root     root         77824 Feb  2 15:26 win10vm
+drwxr-xr-x    1 root     root         77824 Jan 18 15:14 srv-ad-dc01
+drwxr-xr-x    1 root     root         73728 Jan 29 19:37 debian2021vm
+</div>
+<div class="div-h3-heading">
+<h3>esxcli storage filesystem list</h3>
+</div>
+<div class="div-esxi-data">
+Mount Point                                        Volume Name        UUID                                 Mounted  Type             Size           Free
+-------------------------------------------------  -----------------  -----------------------------------  -------  ------  -------------  -------------
+/vmfs/volumes/ec124e48-39674cc3-0000-000000000000  freenas            ec124e48-39674cc3-0000-000000000000     true  NFS41   4110406627328  1695346520064
+/vmfs/volumes/5fad55fa-472c3796-ee03-0025901e43a2  esxi               5fad55fa-472c3796-ee03-0025901e43a2     true  VMFS-6   111669149696   109810024448
+/vmfs/volumes/5fad6411-67b72536-510b-0025901e43a2  vms                5fad6411-67b72536-510b-0025901e43a2     true  VMFS-6  3998346117120  3779619454976
+/vmfs/volumes/5fad55fa-8b45953e-ae86-0025901e43a2                     5fad55fa-8b45953e-ae86-0025901e43a2     true  vfat       4293591040     4277862400
+/vmfs/volumes/66dc3e7e-7bbbdb06-cef0-c244cc62f85b                     66dc3e7e-7bbbdb06-cef0-c244cc62f85b     true  vfat        261853184      106250240
+/vmfs/volumes/5fad55f3-5f3fc784-df70-0025901e43a2                     5fad55f3-5f3fc784-df70-0025901e43a2     true  vfat        299712512       92659712
+/vmfs/volumes/5ae10e7c-26593d16-a85d-5761468ee5cf                     5ae10e7c-26593d16-a85d-5761468ee5cf     true  vfat        261853184      106053632
+</div>
+</pre>
+</div>
+</body>
+</html>
