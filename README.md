@@ -16,6 +16,52 @@
 1. Edit config.conf file
     * Add the hostnames/IPs of ESXis.
     * (Optional) Add the paths of your SSH keys, both private and public.
+    
+### Test run
+* You can check how the program works by running a test run with some example files.
+1. In esxi_info Git project folder, create configuration file `config.conf` with content:
+    ~~~
+    host: hostname1
+    host: hostname2
+    host: hostname3
+    require_sudo: no
+    ~~~
+1. Copy test content to `esxi_infos` directory.
+    ~~~
+    cp -r dev_test esxi_infos
+    ~~~
+1. Run the script.
+    ~~~
+    ./get_esxi_info.bash
+    ~~~
+    * Output should be something like below. There will be errors of SSH key files not existing and that hostnames can't be resolved which is alright.
+    ~~~
+    Reading configuration from file:
+        INFO: No esxi_output_path given. Using default: /mnt/c/esxi_info/esxi_infos/
+    Parsed configuration:
+        ESXis: hostname1 hostname2 hostname3
+        SSH key:
+        WWW dir: /mnt/c/esxi_info/www/
+        ESXi output path: /mnt/c/esxi_info/esxi_infos/
+        Require sudo: no
+    Checking that ESXis can be connected via SSH
+        hostname1
+        ERROR: Warning: Identity file  not accessible: No such file or directory.
+    ssh: Could not resolve hostname hostname1: Name or service not known
+        hostname2
+        ERROR: Warning: Identity file  not accessible: No such file or directory.
+    ssh: Could not resolve hostname hostname2: Name or service not known
+        hostname3
+        ERROR: Warning: Identity file  not accessible: No such file or directory.
+    ssh: Could not resolve hostname hostname3: Name or service not known
+    Error: None of the ESXis configured in /mnt/c/esxi_info/config.conf could be connected!
+    Retrieving and generating information of ESXis via SSH:
+    Appending ESXi information to HTML page
+        hostname1
+        hostname2
+        hostname3
+    Using WSL (Windows Subsystem for Linux): 4.4.0-19041-Microsoft
+    ~~~
 
 ### Automation
 * You can automate program to run perodically by creating SSH keys for connecting to the ESXi hosts and creating a cronjob for running the program perodically. 
