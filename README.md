@@ -12,6 +12,7 @@
 1. Bob's vCenter has crashed and he doesn't know on which ESXi host the vCenter was running on. Bob can look from the HTML file on which ESXi the vCenter was running.
 
 ## How to use
+* Tested with couple distors of Linux and WSL (Windows Sub-system Linux)
 1. Clone the repo in shell. If you want the HTML file to be easily accessed in Windows, it might be good idea to use path similar to `/mnt/c/something`.
     ~~~
     git clone https://github.com/iisti/esxi_info.git
