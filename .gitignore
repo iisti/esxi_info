@@ -1,4 +1,5 @@
 www/*
 esxi_infos/*
-config.conf
+config_example.conf
+*.conf
 *.swp
