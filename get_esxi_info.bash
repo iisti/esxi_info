@@ -628,7 +628,10 @@ func_rotate_archive () {
 mkdir -p "$www_dir"/esxi-archive
 # Create new index.html, remove old symlink and create new symlink to the new index.html
 index_html="$www_dir"/esxi-archive/index-${datefile}.html
-rm "$www_dir"/index.html
+if [ -f "$www_dir"/index.html ]; then
+  rm "$www_dir"/index.html
+fi
+
 ln -s "$index_html" "$www_dir"/index.html
 }
 
