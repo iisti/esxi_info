@@ -715,7 +715,9 @@ func_write_html_end "$index_html"
 # symlink doesn't work with WSL when opening with browser from File Explorer,
 # so let's check: if using WSL, remove symlink and copy the index.html from
 # archive.
-if [[ $(uname -r) =~ Microsoft$ ]]; then
+# 1st check WSL1 output: 4.4.0-19041-Microsoft
+# 2nd check WSL2 output: 5.4.72-microsoft-standard-WSL2
+if [[ $(uname -r) =~ Microsoft$ || $(uname -r) =~ WSL2$ ]]; then
   echo "Using WSL (Windows Subsystem for Linux): $(uname -r)"
   rm "$www_dir"/index.html
   cp "$index_html" "$www_dir"/index.html
